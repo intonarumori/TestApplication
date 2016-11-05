@@ -11,14 +11,14 @@ sudo gem install fastlane
 fastlane ios test
 ```
 
-### ios testflight
+### ios beta
 ```
-fastlane ios testflight
+fastlane ios beta
 ```
 
-### ios appstore
+### ios release
 ```
-fastlane ios appstore
+fastlane ios release
 ```
 
 

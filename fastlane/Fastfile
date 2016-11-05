@@ -49,9 +49,11 @@ platform :ios do
   
   lane :test do
     scan(scheme:"TestApplication", device:"iPhone 7")
-    slack(
-       message: "Testing completed."
-    )
+    if is_ci
+      slack(
+        message: "Testing completed."
+      )
+    end
   end
   
   lane :beta do
