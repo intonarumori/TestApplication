@@ -41,5 +41,9 @@ playground.xcworkspace
 *.xcbkptlist
 .DS_Store
 
+# Fastlane
+
+fastlane/report.xml
+
 
 

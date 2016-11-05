@@ -1,6 +1,33 @@
 machine:
   xcode:
     version: 8.0
+  environment:
+    XCODE_SHEME: TestApplication
+    XCODE_WORKSPACE: TestApplication.xcworkspace
+dependencies:
+  cache_directories:
+    - 'vendor/bundle'
+    - '~/.cocoapods'
+  override:
+    - bundle install -j4 --path=vendor/bundle
+    - pod install:
+        timeout: 300
+
+deployment:
+  staging:
+    branch: [master]
+    commands:
+    - bundle exec fastlane test
+
+  testflight:
+    tag: /beta-.*/
+    commands:
+    - bundle exec fastlane testflight
+
+  release:
+    tag: /release-.*/
+    commands:
+    - bundle exec fastlane appstore
 
 test:
   override:
@@ -16,20 +43,4 @@ test:
         clean build test |
       tee $CIRCLE_ARTIFACTS/xcode_raw.log |
       xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results.xml
-      
-      
-deployment:
-  staging:
-    branch: [master]
-    commands:
-    - bundle exec fastlane test
 
-  testflight:
-    tag: /beta-.*/
-    commands:
-    - bundle exec fastlane beta
-
-  release:
-    tag: /release-.*/
-    commands:
-    - bundle exec fastlane appstore
