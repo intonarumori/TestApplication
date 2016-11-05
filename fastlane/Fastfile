@@ -57,12 +57,11 @@ platform :ios do
   end
   
   lane :beta do
-    scheme = options[:scheme]
     sigh(
       skip_install: true,
       development: false,
     )
-    build(scheme: scheme)
+    build(scheme: "TestApplication")
     pilot(
       ipa: "../TestApplication.ipa",
       skip_submission: true,
