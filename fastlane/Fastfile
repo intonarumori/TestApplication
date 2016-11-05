@@ -57,17 +57,17 @@ platform :ios do
   end
   
   lane :beta do
-    sigh(
-      skip_install: true,
-      development: false,
-    )
+    #sigh(
+    #  skip_install: true,
+    #  development: false,
+    #)
     build(scheme: "TestApplication")
-    pilot(
-      ipa: "../TestApplication.ipa",
-      skip_submission: true,
-    )
-    rocket
-    post_to_slack(scheme: scheme, destination: "TestFlight")
+    #pilot(
+    #  ipa: "../TestApplication.ipa",
+    #  skip_submission: true,
+    #)
+    #rocket
+    #post_to_slack(scheme: scheme, destination: "TestFlight")
     clean_build_artifacts
     #commit_version
   end
