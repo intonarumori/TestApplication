@@ -19,14 +19,14 @@ test:
       
       
 deployment:
-   staging:
-     branch: [master]
-     commands:
-      - bundle exec fastlane test
+  staging:
+    branch: [master]
+    commands:
+    - bundle exec fastlane test
 
   testflight:
-   tag: /beta-.*/
-   commands:
+    tag: /beta-.*/
+    commands:
     - bundle exec fastlane beta
 
   release:
