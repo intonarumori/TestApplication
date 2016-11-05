@@ -2,7 +2,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 def shared_pods
-    pod 'SVProgressHUD'
+    pod 'Alamofire'
 end
 
 target 'TestApplication' do
