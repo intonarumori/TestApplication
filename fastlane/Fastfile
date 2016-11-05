@@ -48,7 +48,7 @@ platform :ios do
   # lanes
   
   lane :test do
-    scan(scheme:"TestApplication")
+    scan(scheme:"TestApplication", device:"iPhone 7")
     slack(
        message: "Testing completed."
     )
