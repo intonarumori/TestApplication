@@ -54,7 +54,7 @@ platform :ios do
     )
   end
   
-  lane :testflight do
+  lane :beta do
     scheme = options[:scheme]
     sigh(
       skip_install: true,
@@ -71,7 +71,7 @@ platform :ios do
     #commit_version
   end
 
-  lane :appstore do |options|
+  lane :release do |options|
 
     # match(type: "appstore")
     # snapshot
