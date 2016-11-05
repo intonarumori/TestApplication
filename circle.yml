@@ -19,7 +19,17 @@ test:
       
       
 deployment:
-  staging:
-    branch: [master]
-  commands:
-    — bundle exec fastlane beta
+   staging:
+     branch: [master]
+     commands:
+      - bundle exec fastlane test
+
+  testflight:
+   tag: /beta-.*/
+   commands:
+    - bundle exec fastlane beta
+
+  release:
+    tag: /release-.*/
+    commands:
+    - bundle exec fastlane appstore
