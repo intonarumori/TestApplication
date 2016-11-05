@@ -17,14 +17,12 @@ default_platform :ios
 
 platform :ios do
   before_all do
-    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
     cocoapods
-    
   end
 
   desc "Runs all the tests"
   lane :test do
-    scan
+    scan --scheme "TestApplication"
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
