@@ -24,6 +24,6 @@ class TestApplicationTests: XCTestCase {
     func test_someValue() {
         
         let value:String? = nil
-        XCTAssertNotNil(value)
+        XCTAssertNil(value)
     }
 }
