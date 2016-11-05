@@ -1,8 +1,8 @@
 platform :ios, '8.0'
+use_frameworks!
 
 def shared_pods
-    pod 'SVProgressHUD', '~> 1.1'
-    pod 'SDWebImage'
+    pod 'SVProgressHUD'
 end
 
 target 'TestApplication' do
