@@ -23,6 +23,9 @@ platform :ios do
   desc "Runs all the tests"
   lane :test do
     scan(scheme:"TestApplication")
+    slack(
+       message: "Testing completed."
+    )
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
@@ -33,6 +36,10 @@ platform :ios do
     
     # TODO: add this for deployment
     #pilot
+
+    slack(
+       message: "Beta app was deployed."
+    )
 
     # sh "your_script.sh"
     # You can also use other beta testing services here (run `fastlane actions`)
@@ -45,16 +52,15 @@ platform :ios do
     gym(scheme: "TestApplication") # Build your app - more options available
     deliver(force: true)
     # frameit
+    slack(
+       message: "Release app was deployed."
+    )
   end
 
   # You can define as many lanes as you want
 
   after_all do |lane|
     # This block is called, only if the executed lane was successful
-
-    slack(
-       message: "Successfully deployed new App Update."
-    )
   end
 
   error do |lane, exception|
